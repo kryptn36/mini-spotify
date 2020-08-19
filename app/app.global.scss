@@ -1,0 +1,26 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900);
+
+html {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  user-select: none;
+  color: white;
+}
+
+body {
+  position: relative;
+  background-color: #222327;
+  width: 100%;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  /* font-family: Arial, Helvetica, Helvetica Neue, serif; */
+  overflow-y: hidden;
+  line-height: 15px;
+}
+
+h2 {
+  margin: 0;
+  letter-spacing: -0.025em;
+}

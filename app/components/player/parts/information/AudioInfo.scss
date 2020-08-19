@@ -1,0 +1,128 @@
+.volume-slider {
+  width: 98%;
+}
+
+.position-slider {
+  width: 68%;
+  margin-left: 20px;
+}
+
+.song-artist {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.song-title {
+  font-size: 0.9em;
+  font-weight: 400;
+  padding-left: 5px;
+
+  position: relative;
+  bottom: 1px;
+}
+
+.audio-quality-number {
+  font-size: 0.7em;
+  font-weight: 500;
+}
+
+.audio-quality-unit {
+  font-size: 0.6em;
+  font-weight: 500;
+}
+
+.active {
+  color: #a5e30b;
+  text-shadow: 0px 0px 5px #a5e30b;
+  margin-left: 5px;
+  margin-right: 1px;
+  font-size: 0.6em;
+}
+
+.inactive {
+  margin-left: 5px;
+  margin-right: 1px;
+  font-size: 0.6em;
+  position: relative;
+}
+
+.toggle-button {
+  margin-left: 4px;
+  font-size: 0.6em;
+  border-width: thin;
+  padding: 4px 7px 4px 7px;
+  border-style: solid;
+  border-color:#9c9fad;
+}
+
+.active-test {
+  color: #a5e30b;
+  text-shadow: 0px 0px 10px #a5e30b;
+  border-color:#a5e30b;
+}
+
+.audio-info {
+  display: flex;
+  width: 94%;
+  align-items: center;
+  margin: auto;
+  padding-top: 16px;
+
+  .right {
+    width: 68%; /* Why not 73%? */
+    height: 100%;
+    margin-left: 25px;
+
+    & > div {
+      margin-bottom: 11px;
+    }
+  }
+
+  .image {
+    display: inline-block;
+    width: 30%;
+
+    img {
+      border-radius: 3px;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+.song-caption {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 2px;
+}
+
+.audio-info-quality > div {
+  display: inline-block;
+  width: 50%;
+
+  &:nth-child(1) {
+    text-align: left;
+  }
+  &:nth-child(2) {
+    text-align: right;
+  }
+}
+
+.audio-info-controls > div {
+  // display: inline-block;
+  float: left;
+
+  &:nth-child(1) {
+    text-align: left;
+    width: 40%;
+  }
+  &:nth-child(2) {
+    text-align: center;
+    width: 30%;
+  }
+  &:nth-child(3) {
+    text-align: right;
+    width: 30%;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "mini-spotify",
+  "productName": "mini-spotify",
+  "version": "0.0.1",
+  "description": "Mini UI for Spotify",
+  "main": "./main.prod.js",
+  "scripts": {
+    "electron-rebuild": "node -r ../internals/scripts/BabelRegister.js ../internals/scripts/ElectronRebuild.js",
+    "postinstall": "yarn electron-rebuild"
+  },
+  "dependencies": {}
+}
