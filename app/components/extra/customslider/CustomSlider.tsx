@@ -1,11 +1,13 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/no-unused-prop-types */
 import React from 'react';
 import styled from 'styled-components';
 import styles from './CustomSlider.scss';
 
 interface CustomSliderProps {
-  thumbImageUrl: string;
   leftColor: string;
   rightColor: string;
+  thumbImageUrl?: string;
   snapTargets?: number[];
   className?: string;
 }
@@ -47,16 +49,21 @@ function CustomSlider(props: CustomSliderProps) {
       max="100"
       onInput={onVolumeInput}
       onMouseUp={onVolumeChange}
-      className={className + ' ' + styles['custom-slider']}
+      className={`${styles['custom-slider']} ${className}`}
       type="range"
-    ></input>
+    />
   );
 }
 
 export default styled(CustomSlider)`
-  background: ${(props) =>
-    `linear-gradient(to right, ${props.leftColor} 0%, ${props.leftColor} 50%, ${props.rightColor} 50%, ${props.rightColor} 100%)`};
-  &::-webkit-slider-thumb {
-    background-image: ${(props) => `url(${props.thumbImageUrl})`};
-  }
+  ${(props) => ({
+    background: `linear-gradient(to right, ${props.leftColor} 0%, ${props.leftColor} 50%, ${props.rightColor} 50%, ${props.rightColor} 100%)`,
+  })}
+
+  ${({ thumbImageUrl }) =>
+    thumbImageUrl && {
+      '::-webkit-slider-thumb': {
+        backgroundImage: `url(${thumbImageUrl})`,
+      },
+    }}
 `;

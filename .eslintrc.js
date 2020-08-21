@@ -1,8 +1,14 @@
 module.exports = {
   extends: 'erb/typescript',
   rules: {
-    // A temporary hack related to IDE not resolving correct package.json
+    'global-require': 'off',
+    'class-methods-use-this': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
   },
   parserOptions: {
     ecmaVersion: 2020,

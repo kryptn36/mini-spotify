@@ -15,10 +15,10 @@ export default function ToggleableButton(props: ToggleableButtonProps) {
   }
 
   return (
-    <span role="button" onClick={onClick}>
+    <span onClick={onClick}>
       {React.cloneElement(element, {
         className: active ? activeClass : inactiveClass,
       })}
     </span>
   );
-};
+}

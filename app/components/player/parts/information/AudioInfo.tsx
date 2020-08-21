@@ -9,14 +9,17 @@ import SongCaption from './SongCaption';
 
 export default function AudioInfo() {
   const defaultDesign = {
-    activeClass: styles['toggle-button'] + ' ' + styles['active-test'],
-    inactiveClass: styles['toggle-button'] + ' ' + styles['inactive-test'],
+    activeClass: `${styles['toggle-button']} ${styles['active-test']}`,
+    inactiveClass: `${styles['toggle-button']} ${styles['inactive-test']}`,
   };
 
   return (
     <div className={styles['audio-info']}>
       <div className={styles.image}>
-        <img src="https://i.scdn.co/image/ab67616d00001e0249e3b7e85829da2fbc68bc46" />
+        <img
+          alt="song cover"
+          src="https://i.scdn.co/image/ab67616d00001e0249e3b7e85829da2fbc68bc46"
+        />
       </div>
       <div className={styles.right}>
         <div>

@@ -11,7 +11,8 @@ if (process.env.NODE_ENV === 'production') {
   sourceMapSupport.install();
 }
 
-const isDebugMode = process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
+const isDebugMode =
+  process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
 if (isDebugMode) {
   require('electron-debug')();
 }
@@ -26,12 +27,12 @@ const installExtensions = async () => {
   ).catch(console.log);
 };
 
-protocol.registerSchemesAsPrivileged([{scheme: "mini-spotify"}]);
+protocol.registerSchemesAsPrivileged([{ scheme: 'mini-spotify' }]);
 
 const createWindow = async () => {
-  protocol.registerHttpProtocol("mini-spotify", (request) => {
+  protocol.registerHttpProtocol('mini-spotify', (request) => {
     console.log(request);
-  })
+  });
 
   if (isDebugMode) {
     await installExtensions();
@@ -71,7 +72,9 @@ const createWindow = async () => {
     }
   });
 
-  mainWindow.on('closed', () => mainWindow = null);
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();

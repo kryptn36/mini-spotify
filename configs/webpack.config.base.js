@@ -32,7 +32,7 @@ export default {
   },
 
   optimization: {
-    namedModules: true
+    namedModules: true,
   },
 
   plugins: [

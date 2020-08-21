@@ -117,20 +117,20 @@ export default merge(baseConfig, {
 
   optimization: {
     minimizer: [
-          new TerserPlugin({
-            parallel: true,
-            sourceMap: true,
-            cache: true,
-          }),
-          new OptimizeCSSAssetsPlugin({
-            cssProcessorOptions: {
-              map: {
-                inline: false,
-                annotation: true,
-              },
-            },
-          }),
-        ],
+      new TerserPlugin({
+        parallel: true,
+        sourceMap: true,
+        cache: true,
+      }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+            annotation: true,
+          },
+        },
+      }),
+    ],
   },
 
   plugins: [
