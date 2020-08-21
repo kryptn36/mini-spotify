@@ -19,9 +19,7 @@ const publicPath = `http://localhost:${port}/dist`;
 
 export default merge(baseConfig, {
   devtool: 'inline-source-map',
-
   mode: 'development',
-
   target: 'electron-renderer',
 
   entry: [
@@ -40,7 +38,6 @@ export default merge(baseConfig, {
 
   module: {
     rules: [
-      // SASS support - compile all .global.scss files and pipe it to style.css
       {
         test: /\.global\.(scss|sass)$/,
         use: [
@@ -54,7 +51,6 @@ export default merge(baseConfig, {
           'sass-loader',
         ],
       },
-      // SASS support - compile all other .scss files and pipe it to style.css
       {
         test: /^((?!\.global).)*\.(scss|sass)$/,
         use: [
