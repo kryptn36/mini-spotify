@@ -4,6 +4,10 @@
   "version": "0.0.1",
   "description": "Mini UI for Spotify",
   "main": "./main.prod.js",
+  "author": {
+    "name": "kryptn36",
+    "email": "me@steffen.space"
+  },
   "scripts": {
     "electron-rebuild": "node -r ../internals/scripts/BabelRegister.js ../internals/scripts/ElectronRebuild.js",
     "postinstall": "yarn electron-rebuild"
