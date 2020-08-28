@@ -7,6 +7,8 @@ export default function AudioProgress() {
     <div>
       <CustomSlider
         className={styles.audioProgress}
+        min={0}
+        max={200}
         thumbImageUrl=""
         leftColor="#88b617"
         rightColor="#3c3d41"

@@ -1,14 +1,16 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/no-unused-prop-types */
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import styles from './CustomSlider.scss';
 
 interface CustomSliderProps {
   leftColor: string;
   rightColor: string;
+  min?: number;
+  max?: number;
   thumbImageUrl?: string;
-  snapTargets?: number[];
+  snapChunks?: number;
   className?: string;
 }
 
@@ -21,7 +23,21 @@ function getClosest(snapPoints: number[], currentValue: number): number {
 }
 
 function CustomSlider(props: CustomSliderProps) {
-  const { leftColor, rightColor, snapTargets, className } = props;
+  const { leftColor, rightColor, min, max, snapChunks, className } = props;
+
+  const snapTargets = useMemo(() => {
+    const targets: number[] = [];
+
+    if (snapChunks) {
+      const steps = max / (snapChunks - 1);
+      targets.push(min, max);
+      // eslint-disable-next-line no-plusplus
+      for (let i = 1; i <= snapChunks - 2; i++) {
+        targets.push(steps * i);
+      }
+    }
+    return targets;
+  }, [snapChunks, min, max]);
 
   function updateBackground(target: HTMLInputElement) {
     const value = (Number(target.value) / Number(target.max)) * 100;
@@ -33,20 +49,21 @@ function CustomSlider(props: CustomSliderProps) {
   }
 
   function onVolumeChange(event: React.FormEvent<HTMLInputElement>) {
-    if (snapTargets) {
+    if (snapTargets.length > 0) {
       const closest = getClosest(
         snapTargets,
         Number(event.currentTarget.value)
       );
       event.currentTarget.value = closest.toString();
     }
+
     updateBackground(event.currentTarget);
   }
 
   return (
     <input
-      min="0"
-      max="100"
+      min={min}
+      max={max}
       onInput={onVolumeInput}
       onMouseUp={onVolumeChange}
       className={`${styles['custom-slider']} ${className}`}
