@@ -8,11 +8,6 @@ import AudioQualityInfo from './AudioQualityInfo';
 import SongCaption from './SongCaption';
 
 export default function AudioInfo() {
-  const defaultDesign = {
-    activeClass: `${styles['toggle-button']} ${styles['active-test']}`,
-    inactiveClass: `${styles['toggle-button']} ${styles['inactive-test']}`,
-  };
-
   return (
     <div className={styles['audio-info']}>
       <div className={styles.image}>
@@ -35,13 +30,13 @@ export default function AudioInfo() {
           <div>
             <ToggleableButton
               element={<span>mono</span>}
+              className={styles.monoStereo}
               activeClass={styles.active}
-              inactiveClass={styles.inactive}
             />
             <ToggleableButton
               element={<span>stereo</span>}
+              className={styles.monoStereo}
               activeClass={styles.active}
-              inactiveClass={styles.inactive}
             />
           </div>
         </div>
@@ -49,6 +44,8 @@ export default function AudioInfo() {
           <div>
             <CustomSlider
               className={styles['volume-slider']}
+              min={0}
+              max={100}
               thumbImageUrl={volumeUp}
               leftColor="#88b617"
               rightColor="#3c3d41"
@@ -57,15 +54,25 @@ export default function AudioInfo() {
           <div>
             <CustomSlider
               className={styles['position-slider']}
-              snapTargets={[0, 50, 100]}
+              min={0}
+              max={100}
+              snapChunks={3}
               thumbImageUrl={arrows}
               leftColor="#3c3d41"
               rightColor="#3c3d41"
             />
           </div>
           <div>
-            <ToggleableButton element={<span>EQ</span>} {...defaultDesign} />
-            <ToggleableButton element={<span>PL</span>} {...defaultDesign} />
+            <ToggleableButton
+              element={<span>EQ</span>}
+              className={styles.eqPl}
+              activeClass={styles.active}
+            />
+            <ToggleableButton
+              element={<span>PL</span>}
+              className={styles.eqPl}
+              activeClass={styles.active}
+            />
           </div>
         </div>
       </div>
