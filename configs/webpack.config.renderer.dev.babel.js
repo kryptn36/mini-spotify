@@ -34,6 +34,25 @@ export default merge(baseConfig, {
     filename: 'renderer.dev.js',
   },
 
+  plugins: [
+    new ReactRefreshWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin({
+      multiStep: true,
+    }),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development',
+    }),
+    new webpack.LoaderOptionsPlugin({
+      debug: true,
+    }),
+  ],
+
+  node: {
+    __dirname: false,
+    __filename: false,
+  },
+
   module: {
     rules: [
       {
@@ -119,24 +138,6 @@ export default merge(baseConfig, {
         use: 'url-loader',
       },
     ],
-  },
-  plugins: [
-    new ReactRefreshWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin({
-      multiStep: true,
-    }),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
-    }),
-    new webpack.LoaderOptionsPlugin({
-      debug: true,
-    }),
-  ],
-
-  node: {
-    __dirname: false,
-    __filename: false,
   },
 
   devServer: {
