@@ -2,9 +2,9 @@
 /* eslint-disable react/no-unused-prop-types */
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import styles from './CustomSlider.scss';
+import StyledSlider from './CustomSlider.styles';
 
-interface CustomSliderProps {
+export interface CustomSliderProps {
   leftColor: string;
   rightColor: string;
   min?: number;
@@ -61,13 +61,12 @@ function CustomSlider(props: CustomSliderProps) {
   }
 
   return (
-    <input
+    <StyledSlider
       min={min}
       max={max}
       onInput={onVolumeInput}
       onMouseUp={onVolumeChange}
-      className={`${styles['custom-slider']} ${className}`}
-      type="range"
+      className={className}
     />
   );
 }

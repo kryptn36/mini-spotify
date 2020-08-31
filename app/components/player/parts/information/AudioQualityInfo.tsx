@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AudioInfo.scss';
+import { QualityUnit, QualityNumber } from './AudioQualityInfo.styles';
 
 interface QualityInfoPros {
   bitrate: number;
@@ -11,13 +11,13 @@ export default function AudioQualityInfo(props: QualityInfoPros) {
 
   return (
     <div>
-      <span className={styles['audio-quality-number']}>{bitrate}</span>
+      <QualityNumber>{bitrate}</QualityNumber>
       &nbsp;
-      <span className={styles['audio-quality-unit']}>kbps</span>
+      <QualityUnit>kbps</QualityUnit>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <span className={styles['audio-quality-number']}>{frequency}</span>
+      <QualityNumber>{frequency}</QualityNumber>
       &nbsp;
-      <span className={styles['audio-quality-unit']}>kHz</span>
+      <QualityUnit>kHz</QualityUnit>
     </div>
   );
 }

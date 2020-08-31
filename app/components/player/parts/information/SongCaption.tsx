@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import styles from './AudioInfo.scss';
+import {
+  SongCaptionContainer,
+  SongTitle,
+  SongArtist,
+} from './SongCaption.styles';
 
 export interface SongCaptionProps {
   artist: string;
@@ -11,12 +15,10 @@ export default function SongCaption(props: SongCaptionProps) {
   const { artist, title } = props;
 
   return (
-    <div className={styles['song-caption']}>
-      <span className={styles['song-artist']}>{artist} -</span>
-      <span data-tip={title} className={styles['song-title']}>
-        {title}
-      </span>
+    <SongCaptionContainer>
+      <SongArtist>{artist} -</SongArtist>
+      <SongTitle data-tip={title}>{title}</SongTitle>
       <ReactTooltip />
-    </div>
+    </SongCaptionContainer>
   );
 }

@@ -1,81 +1,58 @@
-import CustomSlider from 'components/extra/customslider/CustomSlider';
 import ToggleableButton from 'components/extra/toggleablebutton/ToggleableButton';
-import arrows from 'img/arrows-alt-h-solid.png';
-import volumeUp from 'img/volume-up-solid.png';
 import React from 'react';
 import styles from './AudioInfo.scss';
 import AudioQualityInfo from './AudioQualityInfo';
 import SongCaption from './SongCaption';
+import {
+  PositionSlider,
+  VolumeSlider,
+  ControlsContainer,
+  QualityContainer,
+  ImageContainer,
+  MainContainer,
+  AudioInfoContainer,
+  AudioModeButton,
+  BoxButton,
+} from './AudioInfo.styles';
 
 export default function AudioInfo() {
   return (
-    <div className={styles['audio-info']}>
-      <div className={styles.image}>
+    <AudioInfoContainer>
+      <ImageContainer>
         <img
           alt="song cover"
           src="https://i.scdn.co/image/ab67616d00001e0249e3b7e85829da2fbc68bc46"
         />
-      </div>
-      <div className={styles.right}>
+      </ImageContainer>
+      <MainContainer>
         <div>
           <SongCaption
             artist="MANTRA"
             title="Bring Me The Horizonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
           />
         </div>
-        <div className={styles['audio-info-quality']}>
+        <QualityContainer>
           <div>
             <AudioQualityInfo bitrate={320} frequency={44} />
           </div>
           <div>
-            <ToggleableButton
-              element={<span>mono</span>}
-              className={styles.monoStereo}
-              activeClass={styles.active}
-            />
-            <ToggleableButton
-              element={<span>stereo</span>}
-              className={styles.monoStereo}
-              activeClass={styles.active}
-            />
+            <AudioModeButton element={<span>mono</span>} />
+            <AudioModeButton element={<span>stereo</span>} />
           </div>
-        </div>
-        <div className={styles['audio-info-controls']}>
+        </QualityContainer>
+        <ControlsContainer>
           <div>
-            <CustomSlider
-              className={styles['volume-slider']}
-              min={0}
-              max={100}
-              thumbImageUrl={volumeUp}
-              leftColor="#88b617"
-              rightColor="#3c3d41"
-            />
+            <VolumeSlider min={0} max={100} />
           </div>
           <div>
-            <CustomSlider
-              className={styles['position-slider']}
-              min={0}
-              max={100}
-              snapChunks={3}
-              thumbImageUrl={arrows}
-              leftColor="#3c3d41"
-              rightColor="#3c3d41"
-            />
+            <PositionSlider min={0} max={100} snapChunks={3} />
           </div>
           <div>
-            <ToggleableButton
-              element={<span>EQ</span>}
-              className={styles.eqPl}
-              activeClass={styles.active}
-            />
-            <ToggleableButton
-              element={<span>PL</span>}
-              className={styles.eqPl}
-              activeClass={styles.active}
-            />
+            <BoxButton element={<span>EQ</span>} />
+            <BoxButton element={<span>PL</span>} />
           </div>
-        </div>
-      </div>
-    </div>
+        </ControlsContainer>
+      </MainContainer>
+    </AudioInfoContainer>
   );
 }

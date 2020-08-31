@@ -1,4 +1,8 @@
-.custom-slider {
+import styled from 'styled-components';
+
+const StyledSlider = styled.input.attrs(() => ({
+  type: 'range',
+}))`
   -webkit-appearance: none;
   border-radius: 8px;
   height: 5px;
@@ -18,4 +22,6 @@
     background-repeat: no-repeat;
     cursor: pointer;
   }
-}
+`;
+
+export default StyledSlider;
