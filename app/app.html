@@ -28,8 +28,6 @@
         if (process.env.START_HOT) {
           const port = process.env.PORT || 1212;
           writeScript(`http://localhost:${port}/dist/renderer.dev.js`);
-        } else {
-          writeScript('./dist/renderer.prod.js');
         }
       }
     </script>

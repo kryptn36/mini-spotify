@@ -44,23 +44,17 @@ const createWindow = async () => {
     height: 240,
     // resizable: false,
     webPreferences:
-      process.env.NODE_ENV === 'development' &&
-      process.env.ERB_SECURE !== 'true'
+      process.env.NODE_ENV === 'development'
         ? {
             nodeIntegration: true,
-            plugins: true,
           }
         : {
             preload: path.join(__dirname, 'dist/renderer.prod.js'),
-            plugins: true,
           },
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
-
-  // @TODO: Use 'ready-to-show' event
-  //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
-  mainWindow.webContents.on('did-finish-load', () => {
+  mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');
     }
